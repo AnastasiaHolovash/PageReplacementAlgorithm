@@ -30,7 +30,7 @@ final class VirtualPage {
     
     // MARK: - Accessible methods
     
-    func free() {
+    public func free() {
         p = false
         r = false
         m = false

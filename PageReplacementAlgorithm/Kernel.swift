@@ -10,10 +10,11 @@ import Foundation
 var tick: Int = 0
 
 final class Kernel {
-    
-    // MARK: - Singletone
-    
+        
     static let shared = Kernel()
+    private init() { }
+    
+    // MARK: - Private properties
     
     private var processes: [Process] = []
     private var currentProcess: Process?

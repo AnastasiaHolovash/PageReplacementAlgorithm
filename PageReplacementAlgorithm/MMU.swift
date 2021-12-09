@@ -9,14 +9,14 @@ import Foundation
 
 final class MMU {
     
-    // MARK: - Properties
+    static let shared = MMU()
+    
+    // MARK: - Accessible properties
     
     public let physicalPages: [PhysicalPage]
     public var freePhysicalPages: [PhysicalPage]
     
-    // MARK: - Singletone
-    
-    static let shared = MMU()
+    // MARK: - Lifecycle
     
     private init() {
         physicalPages = (0..<Constants.physicalMemoryPages).map { _ in
@@ -27,7 +27,7 @@ final class MMU {
     
     // MARK: - Accessible methods
     
-    func freeMemory(for process: Process) {
+    public func freeMemory(for process: Process) {
         Logger.shared.logFreeingMemory(processId: process.id, tick: tick)
         process.pageTable.forEach {
             $0.physicalPage?.free()

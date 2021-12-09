@@ -23,7 +23,7 @@ final class PhysicalPage {
     
     // MARK: - Accessible methods
     
-    func free() {
+    public func free() {
         p = false
         virtualPage = nil
     }

@@ -7,4 +7,4 @@
 
 import Foundation
 
-Kernel().start()
+Kernel.shared.start()

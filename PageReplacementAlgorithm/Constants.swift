@@ -9,7 +9,7 @@ import Foundation
 
 struct Constants {
     
-    static let programTicks = 400
+    static let programTicks = 200
     static let physicalMemoryPages = 12
     
     // MARK: - Kernel

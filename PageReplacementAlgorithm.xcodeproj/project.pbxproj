@@ -73,15 +73,15 @@
 		5DF6FF5F275FEE150020CA02 /* PageReplacementAlgorithm */ = {
 			isa = PBXGroup;
 			children = (
-				5DF6FF60275FEE150020CA02 /* main.swift */,
+				5DF6FF71275FEE8E0020CA02 /* Constants.swift */,
+				5DF6FF73275FEE9C0020CA02 /* Extensions.swift */,
 				5DF6FF67275FEE360020CA02 /* Kernel.swift */,
+				5DF6FF75275FEEB80020CA02 /* Logger.swift */,
+				5DF6FF60275FEE150020CA02 /* main.swift */,
 				5DF6FF69275FEE470020CA02 /* MMU.swift */,
 				5DF6FF6B275FEE590020CA02 /* PhysicalPage.swift */,
 				5DF6FF6D275FEE690020CA02 /* Process.swift */,
 				5DF6FF6F275FEE760020CA02 /* VirtualPage.swift */,
-				5DF6FF71275FEE8E0020CA02 /* Constants.swift */,
-				5DF6FF73275FEE9C0020CA02 /* Extensions.swift */,
-				5DF6FF75275FEEB80020CA02 /* Logger.swift */,
 			);
 			path = PageReplacementAlgorithm;
 			sourceTree = "<group>";

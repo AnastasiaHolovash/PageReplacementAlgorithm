@@ -11,20 +11,20 @@ final class PhysicalPage {
     
     // MARK: - Properties
     
-    /// Presence bit
     var p: Bool
-    
-    /// Virtual page number
-    var vp: VirtualPage?
-    
-    /// Tick of last use
-    var tlu: Int?
+    weak var virtualPage: VirtualPage?
     
     // MARK: - Lifecycle
     
-    init(p: Bool, vp: VirtualPage? = nil, tlu: Int? = nil) {
+    init(p: Bool, vp: VirtualPage? = nil) {
         self.p = p
-        self.vp = vp
-        self.tlu = tlu
+        self.virtualPage = vp
+    }
+    
+    // MARK: - Accessible methods
+    
+    func free() {
+        p = false
+        virtualPage = nil
     }
 }

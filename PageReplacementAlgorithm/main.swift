@@ -7,5 +7,4 @@
 
 import Foundation
 
-Program().start()
-
+Kernel().start()

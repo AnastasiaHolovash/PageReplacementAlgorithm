@@ -43,56 +43,51 @@ final class Logger {
     func logPageFault(processId: Int, tick: Int) {
         
         pageFaults += 1
-        print("\("Page fault".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(2))")
+        print("\("Page fault".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(4))")
     }
     
     func logPageRead(processId: Int, tick: Int) {
         
         pageReads += 1
-        print("\("Page read".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(2))")
+        print("\("Page read".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(4))")
     }
     
     func logPageModification(processId: Int, tick: Int) {
         
         pageModifications += 1
-        print("\("Page modification".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(2))")
+        print("\("Page modification".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(4))")
     }
     
     func logDirtyPageWriteToDisc(processId: Int, tick: Int) {
         
         wroteDirtyPagesToDisk += 1
-        print("\("Writing dirty page to disk".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(2))")
+        print("\("Writing dirty page to disk".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(4))")
     }
     
     func logWorkingSetPageAccess(processId: Int, tick: Int) {
         
         workingSetPageAccess += 1
-        print("\("Working set page access".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(2))")
+        print("\("Working set page access".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(4))")
     }
     
     func logNonWorkingSetPageAccess(processId: Int, tick: Int) {
         
         nonWorkingSetPageAccess += 1
-        print("\("Non working set page access".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(2))")
+        print("\("Non working set page access".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(4))")
     }
     
-    func logReplacedUnusedPage(processId: Int, tick: Int) {
+    func logReplacedByClockAlgorithm(processId: Int, tick: Int) {
         
-        print("\("Replaced unused page".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(2))")
-    }
-    
-    func logReplacedOldestPage(processId: Int, tick: Int) {
-        
-        print("\("Replaced oldest page".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(2))")
+        print("\("Replaced by clock algorithm".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(4))")
     }
     
     func logUsedFreePage(processId: Int, tick: Int) {
         
-        print("\("Used free page".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(2))")
+        print("\("Used free page".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(4))")
     }
     
     func logFreeingMemory(processId: Int, tick: Int) {
         
-        print("\("Process ended, freeing memory".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(2))")
+        print("\("Process ended, freeing memory".padding(40)) | pid: \(processId.string.padding(2)) | tick: \(tick.string.padding(4))")
     }
 }

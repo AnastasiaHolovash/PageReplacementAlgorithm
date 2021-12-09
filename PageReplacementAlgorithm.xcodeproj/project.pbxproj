@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5DF6FF61275FEE150020CA02 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6FF60275FEE150020CA02 /* main.swift */; };
-		5DF6FF68275FEE360020CA02 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6FF67275FEE360020CA02 /* Program.swift */; };
-		5DF6FF6A275FEE470020CA02 /* MemoryManagementUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6FF69275FEE470020CA02 /* MemoryManagementUnit.swift */; };
+		5DF6FF68275FEE360020CA02 /* Kernel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6FF67275FEE360020CA02 /* Kernel.swift */; };
+		5DF6FF6A275FEE470020CA02 /* MMU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6FF69275FEE470020CA02 /* MMU.swift */; };
 		5DF6FF6C275FEE590020CA02 /* PhysicalPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6FF6B275FEE590020CA02 /* PhysicalPage.swift */; };
 		5DF6FF6E275FEE690020CA02 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6FF6D275FEE690020CA02 /* Process.swift */; };
 		5DF6FF70275FEE760020CA02 /* VirtualPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF6FF6F275FEE760020CA02 /* VirtualPage.swift */; };
@@ -33,8 +33,8 @@
 /* Begin PBXFileReference section */
 		5DF6FF5D275FEE150020CA02 /* PageReplacementAlgorithm */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PageReplacementAlgorithm; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF6FF60275FEE150020CA02 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		5DF6FF67275FEE360020CA02 /* Program.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
-		5DF6FF69275FEE470020CA02 /* MemoryManagementUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryManagementUnit.swift; sourceTree = "<group>"; };
+		5DF6FF67275FEE360020CA02 /* Kernel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kernel.swift; sourceTree = "<group>"; };
+		5DF6FF69275FEE470020CA02 /* MMU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMU.swift; sourceTree = "<group>"; };
 		5DF6FF6B275FEE590020CA02 /* PhysicalPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalPage.swift; sourceTree = "<group>"; };
 		5DF6FF6D275FEE690020CA02 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		5DF6FF6F275FEE760020CA02 /* VirtualPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualPage.swift; sourceTree = "<group>"; };
@@ -74,8 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				5DF6FF60275FEE150020CA02 /* main.swift */,
-				5DF6FF67275FEE360020CA02 /* Program.swift */,
-				5DF6FF69275FEE470020CA02 /* MemoryManagementUnit.swift */,
+				5DF6FF67275FEE360020CA02 /* Kernel.swift */,
+				5DF6FF69275FEE470020CA02 /* MMU.swift */,
 				5DF6FF6B275FEE590020CA02 /* PhysicalPage.swift */,
 				5DF6FF6D275FEE690020CA02 /* Process.swift */,
 				5DF6FF6F275FEE760020CA02 /* VirtualPage.swift */,
@@ -144,12 +144,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DF6FF68275FEE360020CA02 /* Program.swift in Sources */,
+				5DF6FF68275FEE360020CA02 /* Kernel.swift in Sources */,
 				5DF6FF6E275FEE690020CA02 /* Process.swift in Sources */,
 				5DF6FF70275FEE760020CA02 /* VirtualPage.swift in Sources */,
 				5DF6FF74275FEE9C0020CA02 /* Extensions.swift in Sources */,
 				5DF6FF76275FEEB80020CA02 /* Logger.swift in Sources */,
-				5DF6FF6A275FEE470020CA02 /* MemoryManagementUnit.swift in Sources */,
+				5DF6FF6A275FEE470020CA02 /* MMU.swift in Sources */,
 				5DF6FF72275FEE8E0020CA02 /* Constants.swift in Sources */,
 				5DF6FF61275FEE150020CA02 /* main.swift in Sources */,
 				5DF6FF6C275FEE590020CA02 /* PhysicalPage.swift in Sources */,

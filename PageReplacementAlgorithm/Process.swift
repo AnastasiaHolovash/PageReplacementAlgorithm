@@ -11,73 +11,75 @@ final class Process {
     
     // MARK: - Properties
     
-    /// Process ID
     let id: Int
-    
     var processTime: Int
+    var pageTable: [VirtualPage]
+    var workingSet: [VirtualPage] = []
+    var nonWorkingSet: [VirtualPage] = []
     
-    var workedTime: Int
-    
-    var isFinished: Bool
-    
-    // MARK: - Lifecycle
-    
-    init(id: Int, processTime: Int) {
-        self.id = id
-        self.processTime = processTime
-        self.workedTime = 0
-        self.isFinished = false
-                
-        MMU.shared.addProcess(self)
-    }
-    
-    // MARK: - Public methods
-    
-    func run() {
-        
-        accessPage()
-        processTime += 1
-        if processTime == workedTime {
-            freeMemory()
-            isFinished = true
+    var workedTime: Int {
+        didSet {
+            isFinished = processTime == workedTime
         }
     }
     
-    // MARK: - Private methods
+    var isFinished: Bool {
+        didSet {
+            
+        }
+    }
     
-    private func accessPage() {
+    // MARK: - Lifecycle
+    
+    init(id: Int, pageTable: [VirtualPage]) {
+        self.id = id
+        self.processTime = Int.random(
+            in: Constants.Process.minWorkTime...Constants.Process.maxWorkTime
+        )
+        self.workedTime = 0
+        self.isFinished = false
+        self.pageTable = pageTable
         
-        guard Double.random > Constants.Process.pageAccessProbability else {
+        createWorkingSet(for: pageTable)
+    }
+    
+    // MARK: - Accessible methods
+    
+    public func accessPage() {
+        workedTime += 1
+        guard Double.random > Constants.Process.pageAccessProbability,
+              let page = getAccessPage() else {
             return
         }
         
         Double.random < Constants.Process.pageModifyProbability
-            ? MMU.shared.modifyPage()
-            : MMU.shared.readPage()
+        ? MMU.shared.accessPage(page, for: self, accessType: .modify)
+        : MMU.shared.accessPage(page, for: self, accessType: .read)
+    }
+    
+    public func updateWorkingSet() {
+        createWorkingSet(for: pageTable)
+    }
+    
+    // MARK: - Private methods
+    
+    private func getAccessPage() -> VirtualPage? {
+        if Double.random < Constants.WorkingSet.accessProbability {
+            Logger.shared.logWorkingSetPageAccess(processId: id, tick: tick)
+            return workingSet.randomElement()
+        } else {
+            Logger.shared.logNonWorkingSetPageAccess(processId: id, tick: tick)
+            return nonWorkingSet.randomElement()
+        }
+    }
+    
+    private func createWorkingSet(for pageTable: [VirtualPage]) {
+        pageTable.forEach { page in
+            Double.random < 0.5 ? workingSet.append(page) : nonWorkingSet.append(page)
+        }
     }
     
     private func freeMemory() {
-        
         MMU.shared.freeMemory(for: self)
     }
 }
-
-// MARK: - Hashable
-
-extension Process: Hashable {
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-//        hasher.combine(isFinished)
-//        hasher.combine(workedTime)
-//        hasher.combine(processTime)
-    }
-    
-    static func == (lhs: Process, rhs: Process) -> Bool {
-        return lhs.id == rhs.id
-//            && lhs.isFinished == rhs.isFinished
-//            && lhs.workedTime == rhs.workedTime
-//            && lhs.processTime == rhs.processTime
-    }
-}
-

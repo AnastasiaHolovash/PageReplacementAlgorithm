@@ -9,29 +9,31 @@ import Foundation
 
 final class VirtualPage {
     
-    /// Presence bit
     var p: Bool
-    
-    /// Reference bit
     var r: Bool
-    
-    /// Modification bit
     var m: Bool
-    
-    /// Physical page num
-    var physicalPageNum: Int?
+    var physicalPage: PhysicalPage?
     
     // MARK: - Lifecycle
     
     init(
-        p: Bool,
-        r: Bool,
-        m: Bool,
-        physicalPageNum: Int? = nil
+        p: Bool = false,
+        r: Bool = false,
+        m: Bool = false,
+        physicalPage: PhysicalPage? = nil
     ) {
         self.p = p
         self.r = r
         self.m = m
-        self.physicalPageNum = physicalPageNum
+        self.physicalPage = physicalPage
+    }
+    
+    // MARK: - Accessible methods
+    
+    func free() {
+        p = false
+        r = false
+        m = false
+        physicalPage = nil
     }
 }
